@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+// MASK: - PROPERTIES
+
 
 struct ListView: View {
     // MASK: - PROPERTIES
-    
+    @Binding var items: [Item]
     let title: String
     var body: some View {
         VStack(spacing: 0){
@@ -28,7 +30,7 @@ struct ListView: View {
                 .padding(.horizontal)
                 .padding(.top)
             
-            List {
+            List ($items){ $item in
                Text("Item 1")
                 
                 Text("Item 2")
@@ -42,5 +44,32 @@ struct ListView: View {
 }
 
 #Preview {
-    ListView(title: "To Do")
+    ListView(
+        items: .constant(
+            [
+                Item(
+                    id: "abc123",
+                    authorId: "John Doe",
+                    title: "First item",
+                    description: "First description",
+                    startDate: .now
+                ),
+                Item(
+                    id: "123abc",
+                    authorId: "John Doe",
+                    title: "Second item",
+                    description: "Second description",
+                    startDate: .now
+                ),
+                Item(
+                    id: "789xyz",
+                    authorId: "John Doe",
+                    title: "Third item",
+                    description: "Third description",
+                    startDate: .now
+                ),
+            ]
+        ),
+        title: "To Do"
+    )
 }

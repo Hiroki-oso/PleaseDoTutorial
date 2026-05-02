@@ -10,15 +10,86 @@ import SwiftUI
 struct HomeView: View {
     // MASK: - PROPERTIES
     @State private var path = NavigationPath()
+    @State private var todoItems: [Item] = [
+        Item(
+            id: "abc123",
+            authorId: "John Doe",
+            title: "First item",
+            description: "First description",
+            startDate: .now
+        ),
+        Item(
+            id: "123abc",
+            authorId: "John Doe",
+            title: "Second item",
+            description: "Second description",
+            startDate: .now
+        ),
+        Item(
+            id: "789xyz",
+            authorId: "John Doe",
+            title: "Third item",
+            description: "Third description",
+            startDate: .now
+        )
+    ]
+    
+    @State private var inProgressItems: [Item] = [
+        Item(
+            id: "abc123",
+            authorId: "John Doe",
+            title: "First item",
+            description: "First description",
+            startDate: .now
+        ),
+        Item(
+            id: "123abc",
+            authorId: "John Doe",
+            title: "Second item",
+            description: "Second description",
+            startDate: .now
+        ),
+        Item(
+            id: "789xyz",
+            authorId: "John Doe",
+            title: "Third item",
+            description: "Third description",
+            startDate: .now
+        )
+    ]
+    
+    @State private var doneItems: [Item] = [
+        Item(
+            id: "abc123",
+            authorId: "John Doe",
+            title: "First item",
+            description: "First description",
+            startDate: .now
+        ),
+        Item(
+            id: "123abc",
+            authorId: "John Doe",
+            title: "Second item",
+            description: "Second description",
+            startDate: .now
+        ),
+        Item(
+            id: "789xyz",
+            authorId: "John Doe",
+            title: "Third item",
+            description: "Third description",
+            startDate: .now
+        )
+    ]
     
     var body: some View {
         NavigationStack {
             TabView {
-                ListView(title: "To Do")
+                ListView(items: $todoItems, title: "To Do")
                 
-                ListView(title: "In Progress")
+                ListView(items: $inProgressItems, title: "In Progress")
                 
-                ListView(title: "Done")
+                ListView(items: $doneItems, title: "Done")
             }
             .tabViewStyle(.page)
             .navigationBarTitleDisplayMode(.inline)
