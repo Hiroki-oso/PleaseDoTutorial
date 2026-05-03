@@ -16,21 +16,27 @@ struct HomeView: View {
             authorId: "John Doe",
             title: "First item",
             description: "First description",
-            startDate: .now
+            startDate: .now,
+            status: .todo,
+            priority: .low
         ),
         Item(
             id: "123abc",
             authorId: "John Doe",
             title: "Second item",
             description: "Second description",
-            startDate: .now
+            startDate: .now,
+            status: .inProgress,
+            priority: .medium
         ),
         Item(
             id: "789xyz",
             authorId: "John Doe",
             title: "Third item",
             description: "Third description",
-            startDate: .now
+            startDate: .now,
+            status: .todo,
+            priority: .low
         )
     ]
     
@@ -40,22 +46,29 @@ struct HomeView: View {
             authorId: "John Doe",
             title: "First item",
             description: "First description",
-            startDate: .now
+            startDate: .now,
+            status: .todo,
+            priority: .low
         ),
         Item(
             id: "123abc",
             authorId: "John Doe",
             title: "Second item",
             description: "Second description",
-            startDate: .now
+            startDate: .now,
+            status: .inProgress,
+            priority: .medium
         ),
         Item(
             id: "789xyz",
             authorId: "John Doe",
             title: "Third item",
             description: "Third description",
-            startDate: .now
+            startDate: .now,
+            status: .todo,
+            priority: .low
         )
+        
     ]
     
     @State private var doneItems: [Item] = [
@@ -64,21 +77,27 @@ struct HomeView: View {
             authorId: "John Doe",
             title: "First item",
             description: "First description",
-            startDate: .now
+            startDate: .now,
+            status: .todo,
+            priority: .low
         ),
         Item(
             id: "123abc",
             authorId: "John Doe",
             title: "Second item",
             description: "Second description",
-            startDate: .now
+            startDate: .now,
+            status: .inProgress,
+            priority: .medium
         ),
         Item(
             id: "789xyz",
             authorId: "John Doe",
             title: "Third item",
             description: "Third description",
-            startDate: .now
+            startDate: .now,
+            status: .todo,
+            priority: .low
         )
     ]
     
