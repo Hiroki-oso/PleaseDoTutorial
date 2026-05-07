@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     // MASK: - PROPERTIES
-    @State private var path = NavigationPath()
+    @State private var path: [NavPath] = []
     @State private var todoItems: [Item] = [
         Item(
             id: "abc123",
@@ -102,7 +102,7 @@ struct HomeView: View {
     ]
     
     var body: some View {
-        NavigationStack {
+        NavigationStack(path: $path) {
             ZStack{
                 Color.background
                     .ignoresSafeArea()
@@ -129,14 +129,20 @@ struct HomeView: View {
                 
                 ToolbarItem(placement: .topBarTrailing){
                     Button {
-                        print("Navigate to new item")
+                        path.append(NavPath.newItem)
                     } label: {
                         Image(systemName: "plus")
                     }
                 }
             }.navigationDestination(
-                for: String.self) { _ in
-                    Text("New View Here")
+                for: NavPath.self) { path in
+                    switch path {
+                    case .newItem:
+                        Text("New item view here")
+                    case .details:
+                        Text("Item details view here")
+                        
+                    }
                 }
         }
 
